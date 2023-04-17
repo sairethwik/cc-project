@@ -9,9 +9,12 @@ mydb = mysql.connector.connect(
 )
 c = mydb.cursor()
 
-
-
-
+def create_table():
+    c.execute('CREATE TABLE IF NOT EXISTS `attendance` (  `Class_ID` varchar(255) NOT NULL,  `Dates` varchar(255) NOT NULL,  `Student_ID` varchar(255) NOT NULL)')
+    c.execute('CREATE TABLE IF NOT EXISTS `student` (`Student_ID` varchar(255) NOT NULL,  `F_name` varchar(255) DEFAULT NULL,  `L_name` varchar(255) DEFAULT NULL,  `email_ID` varchar(255) DEFAULT NULL,  `Phone_no` varchar(255) DEFAULT NULL,  `password` varchar(255) NOT NULL)')
+    c.execute('CREATE TABLE IF NOT EXISTS `teacher` (  `Teach_ID` varchar(255) NOT NULL,  `email_ID` varchar(255) DEFAULT NULL,  `Phone_no` varchar(255) DEFAULT NULL,  `Subject` varchar(255) DEFAULT NULL)')
+    c.execute('CREATE TABLE IF NOT EXISTS `department` (  `Dept_ID` varchar(11) NOT NULL,  `Teach_ID` varchar(255) DEFAULT NULL)')
+    c.execute('CREATE TABLE IF NOT EXISTS `class` (  `Student_ID` varchar(255) DEFAULT NULL,  `Subject` varchar(255) DEFAULT NULL,  `Dates` varchar(255) DEFAULT NULL,  `Teach_ID` varchar(255) DEFAULT NULL,  `class_ID` varchar(255) NOT NULL)')
 
 def add_data(Student_ID, Subject, Dates, Teach_ID,class_ID):
 

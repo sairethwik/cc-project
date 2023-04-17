@@ -10,6 +10,7 @@ from admin import manag
 from attendance import *
 from student_update import *
 from view_attendance import *
+from database import *
 
 
 #hi rethwik
@@ -18,6 +19,7 @@ def main():
     st.title("PES2UG20CS394 Student attendance management system :")
   
     menu = ["Teacher", "Admin", "Student", "View attendance","Mark Attendance","Update"]
+    create_table()
 
     choice = st.sidebar.selectbox("Menu", menu)
 
